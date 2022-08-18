@@ -1,6 +1,8 @@
 package com.mb.controller;
 
+import static com.mb.constant.UrlMapping.USERS;
 import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +22,8 @@ public class UserController extends BaseController
 	@Autowired
 	private UserService userService;
 
-	@PostMapping("/users")
-	public ResponseEntity<SuccResponse> saveUser(@RequestBody UserDto userDto)
+	@PostMapping(USERS)
+	public ResponseEntity<SuccResponse> saveUser(@Valid @RequestBody UserDto userDto)
 	{
 		SuccResponse responseModel = SuccResponse.getInstance();
 		responseModel.setData(userService.saveUser(userDto));
@@ -30,7 +32,7 @@ public class UserController extends BaseController
 		return new ResponseEntity<SuccResponse>(responseModel, HttpStatus.ACCEPTED);
 	}
 
-	@GetMapping("/users")
+	@GetMapping(USERS)
 	public ResponseEntity<List<User>> getUser()
 	{
 		return new ResponseEntity<>(userService.getUser(), HttpStatus.OK);

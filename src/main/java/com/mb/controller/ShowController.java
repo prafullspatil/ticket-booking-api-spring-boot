@@ -1,6 +1,9 @@
 package com.mb.controller;
 
+import static com.mb.constant.UrlMapping.SHOWS;
+import static com.mb.constant.UrlMapping.SINGLE_SHOW;
 import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +25,8 @@ public class ShowController extends BaseController
 	@Autowired
 	private ShowService showService;
 
-	@PostMapping("/shows")
-	public ResponseEntity<SuccResponse> saveShow(@RequestBody ShowDto showDto)
+	@PostMapping(SHOWS)
+	public ResponseEntity<SuccResponse> saveShow(@Valid @RequestBody ShowDto showDto)
 	{
 		SuccResponse responseModel = SuccResponse.getInstance();
 		responseModel.setData(showService.saveShow(showDto));
@@ -32,13 +35,13 @@ public class ShowController extends BaseController
 		return new ResponseEntity<SuccResponse>(responseModel, HttpStatus.ACCEPTED);
 	}
 
-	@GetMapping("/shows")
+	@GetMapping(SHOWS)
 	public ResponseEntity<List<Show>> getShow()
 	{
 		return new ResponseEntity<>(showService.getShow(), HttpStatus.OK);
 	}
 
-	@GetMapping("/shows/{id}")
+	@GetMapping(SINGLE_SHOW)
 	public ResponseEntity<?> getShowById(@PathVariable("id") long id)
 	{
 
@@ -47,7 +50,7 @@ public class ShowController extends BaseController
 
 	}
 
-	@PutMapping("/shows/{id}")
+	@PutMapping(SINGLE_SHOW)
 	public ResponseEntity<?> updateShow(@PathVariable long id,
 			@RequestBody ShowDto showDto)
 	{

@@ -1,8 +1,10 @@
 package com.mb.exception;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,6 +46,28 @@ public class GlobalExceptionHandler
 		SuccResponse model = new SuccResponse();
 
 		return model.validationErrorsResponse("enter valid data ", errorsValidation);
+	}
+
+	@ExceptionHandler(value = {NotFoundException.class})
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	public ErrorResponse handleUnKnownException(NotFoundException ex)
+	{
+		return new ErrorResponse(new Date(), "Not found", ex.getMessage(), HttpStatus.OK.value(), ex.getMessage());
+	}
+
+	@ExceptionHandler(value = {Exception.class})
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+	public ErrorResponse internalServerException(Exception ex)
+	{
+		return new ErrorResponse(new Date(), "Internal server error", ex.getMessage(),
+				HttpStatus.INTERNAL_SERVER_ERROR.value(), ex.getMessage());
+	}
+
+	@ExceptionHandler(value = {IOException.class})
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public ErrorResponse handleBadRequest(IOException ex)
+	{
+		return new ErrorResponse(new Date(), "Bad request", ex.getMessage(), HttpStatus.BAD_REQUEST.value(), ex.getMessage());
 	}
 
 }

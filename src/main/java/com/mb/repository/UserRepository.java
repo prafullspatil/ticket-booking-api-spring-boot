@@ -5,5 +5,5 @@ import com.mb.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long>
 {
-
+	User findUserById(long id);
 }

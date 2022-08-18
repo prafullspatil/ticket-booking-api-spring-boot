@@ -47,8 +47,6 @@ public class Show
 	@Column(name = "about")
 	private String about;
 
-	// private String[] reserved;
-
 	public long getId()
 	{
 		return id;

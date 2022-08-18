@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import com.mb.dto.BookingDetailDto;
 import com.mb.entity.BookingDetail;
 import com.mb.entity.Show;
+import com.mb.entity.User;
 import com.mb.repository.BookingDetailRepository;
 import com.mb.repository.ShowRepository;
+import com.mb.repository.UserRepository;
 
 @Service
 public class BookingDetailServiceImpl implements BookingDetailService
@@ -21,26 +23,31 @@ public class BookingDetailServiceImpl implements BookingDetailService
 	private ShowRepository showRepository;
 
 	@Autowired
+	private UserRepository userRepository;
+
+	@Autowired
 	private ModelMapper modelMapper;
 
 	@Override
 	public BookingDetail saveSeatDetails(BookingDetailDto bookingDetailDto)
 	{
-		System.out.println(bookingDetailDto.getShowId());
-		Optional<Show> optionalshow = showRepository.findById(bookingDetailDto.getShowId());
+		// System.out.println(bookingDetailDto.getShowId());
+		Optional<Show> optionalShow = showRepository.findById(bookingDetailDto.getShowId());
+		Optional<User> optionalUser = userRepository.findById(bookingDetailDto.getUserId());
+		// System.out.println(optionalShow);
 
-		System.out.println(optionalshow);
-
-		if (!optionalshow.isPresent())
+		if (!optionalShow.isPresent())
 		{
 			// throw new CustomException("Product not found");
 		}
-		Show show = optionalshow.get();
-		System.out.println(optionalshow.get().getId());
+
+		User user = optionalUser.get();
+
+		Show show = optionalShow.get();
+		// System.out.println(optionalShow.get().getId());
 
 		BookingDetail seatDetail = new BookingDetail();
-		seatDetail.setUserName(bookingDetailDto.getUserName());
-		seatDetail.setEmail(bookingDetailDto.getEmail());
+		seatDetail.setUser(user);
 		seatDetail.setReserved(bookingDetailDto.getReserved());
 		seatDetail.setShow(show);
 
@@ -51,6 +58,12 @@ public class BookingDetailServiceImpl implements BookingDetailService
 	public List<BookingDetail> getSeatDetails()
 	{
 		return seatDetailsRepository.findAll();
+	}
+
+	@Override
+	public List<BookingDetail> getReservedSeat(Show id)
+	{
+		return seatDetailsRepository.findReservedSeats(id);
 	}
 
 }

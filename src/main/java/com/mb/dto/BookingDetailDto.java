@@ -1,12 +1,14 @@
 package com.mb.dto;
 
+import javax.validation.constraints.NotNull;
+
 public class BookingDetailDto
 {
 
-	private String userName;
+	@NotNull
+	private long userId;
 
-	private String email;
-
+	@NotNull
 	private long showId;
 
 	private String[] reserved;
@@ -16,14 +18,9 @@ public class BookingDetailDto
 		return reserved;
 	}
 
-	public String getUserName()
+	public long getUserId()
 	{
-		return userName;
-	}
-
-	public String getEmail()
-	{
-		return email;
+		return userId;
 	}
 
 	public long getShowId()

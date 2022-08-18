@@ -1,12 +1,14 @@
 package com.mb.entity;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,15 +20,30 @@ public class BookingDetail
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	private String userName;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id", nullable = false)
+	private User user;
 
-	private String email;
-
+	@Column(name = "reserved")
 	private String[] reserved;
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "show_id", nullable = false, updatable = false)
 	private Show show;
+
+	public BookingDetail()
+	{
+		super();
+	}
+
+	public BookingDetail(long id, User user, String[] reserved, Show show)
+	{
+		super();
+		this.id = id;
+		this.user = user;
+		this.reserved = reserved;
+		this.show = show;
+	}
 
 	public String[] getReserved()
 	{
@@ -43,16 +60,6 @@ public class BookingDetail
 		return id;
 	}
 
-	public String getUserName()
-	{
-		return userName;
-	}
-
-	public String getEmail()
-	{
-		return email;
-	}
-
 	public Show getShow()
 	{
 		return show;
@@ -63,21 +70,19 @@ public class BookingDetail
 		this.id = id;
 	}
 
-	public void setUserName(String userName)
-	{
-		this.userName = userName;
-	}
-
-	public void setEmail(String email)
-	{
-		this.email = email;
-	}
-
 	public void setShow(Show show)
 	{
 		this.show = show;
 	}
 
-	// private String[] reserved;
+	public User getUser()
+	{
+		return user;
+	}
+
+	public void setUser(User user)
+	{
+		this.user = user;
+	}
 
 }
