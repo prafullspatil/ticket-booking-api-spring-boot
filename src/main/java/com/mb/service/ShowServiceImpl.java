@@ -4,9 +4,9 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.mb.dao.ShowDao;
 import com.mb.dto.ShowDto;
 import com.mb.entity.Show;
-import com.mb.repository.ShowRepository;
 
 @Service
 public class ShowServiceImpl implements ShowService
@@ -16,26 +16,26 @@ public class ShowServiceImpl implements ShowService
 	private ModelMapper modelMapper;
 
 	@Autowired
-	private ShowRepository showRepository;
+	private ShowDao showDao;
 
 	@Override
 	public List<Show> getShow()
 	{
-		return showRepository.findAll();
+		return showDao.getShow();
 	}
 
 	@Override
 	public Show saveShow(ShowDto showDto)
 	{
 		Show show = modelMapper.map(showDto, Show.class);
-		return showRepository.save(show);
+		return showDao.saveShow(show);
 	}
 
 	@Override
 	public Show getShowById(long id)
 	{
 
-		return showRepository.findShowById(id);
+		return showDao.getShowById(id);
 
 	}
 

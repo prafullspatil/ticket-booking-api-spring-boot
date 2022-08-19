@@ -4,9 +4,9 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.mb.dao.UserDao;
 import com.mb.dto.UserDto;
 import com.mb.entity.User;
-import com.mb.repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService
@@ -16,20 +16,20 @@ public class UserServiceImpl implements UserService
 	private ModelMapper modelMapper;
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserDao userDao;
 
 	@Override
 	public User saveUser(UserDto userDto)
 	{
 		User user = modelMapper.map(userDto, User.class);
-		return userRepository.save(user);
+		return userDao.saveUser(user);
 	}
 
 	@Override
 	public List<User> getUser()
 	{
 
-		return userRepository.findAll();
+		return userDao.getUser();
 
 	}
 
