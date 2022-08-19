@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.mb.dto.ShowDto;
@@ -30,7 +29,7 @@ public class ShowController extends BaseController
 	{
 		SuccResponse responseModel = SuccResponse.getInstance();
 		responseModel.setData(showService.saveShow(showDto));
-		responseModel.setMessage("User Registered Successfully");
+		responseModel.setMessage("Show added Successfully");
 		responseModel.setStatusCode(HttpStatus.OK.value());
 		return new ResponseEntity<SuccResponse>(responseModel, HttpStatus.ACCEPTED);
 	}
@@ -50,13 +49,4 @@ public class ShowController extends BaseController
 
 	}
 
-	@PutMapping(SINGLE_SHOW)
-	public ResponseEntity<?> updateShow(@PathVariable long id,
-			@RequestBody ShowDto showDto)
-	{
-
-		Show show = showService.updateShow(id, showDto);
-
-		return new ResponseEntity<>(show, HttpStatus.OK);
-	}
 }

@@ -16,4 +16,5 @@ public class BeanConfigurations
 		mapper.getConfiguration().setPropertyCondition(Conditions.isNotNull());
 		return mapper;
 	}
+
 }

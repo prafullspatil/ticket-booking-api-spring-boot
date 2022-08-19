@@ -86,9 +86,4 @@ public class ShowDto
 		return about;
 	}
 
-	// public String[] getReserved()
-	// {
-	// return reserved;
-	// }
-
 }

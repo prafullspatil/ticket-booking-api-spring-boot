@@ -12,5 +12,4 @@ public interface ShowService
 
 	Show getShowById(long id);
 
-	Show updateShow(long id, ShowDto showDto);
 }

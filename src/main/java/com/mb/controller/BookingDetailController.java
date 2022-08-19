@@ -30,7 +30,7 @@ public class BookingDetailController extends BaseController
 	{
 		SuccResponse responseModel = SuccResponse.getInstance();
 		responseModel.setData(seatDetailsService.saveSeatDetails(bookingDetailDto));
-		responseModel.setMessage("User Registered Successfully");
+		responseModel.setMessage("Book Successfully");
 		responseModel.setStatusCode(HttpStatus.OK.value());
 		return new ResponseEntity<SuccResponse>(responseModel, HttpStatus.ACCEPTED);
 	}

@@ -28,6 +28,4 @@ public class BookingDetailDto
 		return showId;
 	}
 
-	// private String[] reserved;
-
 }

@@ -39,15 +39,4 @@ public class ShowServiceImpl implements ShowService
 
 	}
 
-	@Override
-	public Show updateShow(long id, ShowDto showDto)
-	{
-		Show oldShow = showRepository.findShowById(id);
-		Show updatedShow = modelMapper.map(showDto, Show.class);
-		updatedShow.setId(oldShow.getId());
-		// updatedUser.setUser(employeeUuid);
-
-		return showRepository.save(updatedShow);
-	}
-
 }

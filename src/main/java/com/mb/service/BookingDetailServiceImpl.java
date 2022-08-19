@@ -31,21 +31,12 @@ public class BookingDetailServiceImpl implements BookingDetailService
 	@Override
 	public BookingDetail saveSeatDetails(BookingDetailDto bookingDetailDto)
 	{
-		// System.out.println(bookingDetailDto.getShowId());
+
 		Optional<Show> optionalShow = showRepository.findById(bookingDetailDto.getShowId());
 		Optional<User> optionalUser = userRepository.findById(bookingDetailDto.getUserId());
-		// System.out.println(optionalShow);
-
-		if (!optionalShow.isPresent())
-		{
-			// throw new CustomException("Product not found");
-		}
 
 		User user = optionalUser.get();
-
 		Show show = optionalShow.get();
-		// System.out.println(optionalShow.get().getId());
-
 		BookingDetail seatDetail = new BookingDetail();
 		seatDetail.setUser(user);
 		seatDetail.setReserved(bookingDetailDto.getReserved());
