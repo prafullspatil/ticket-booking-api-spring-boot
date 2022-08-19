@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "shows")
-public class Show
+public class Show extends Auditable
 {
 
 	@Id

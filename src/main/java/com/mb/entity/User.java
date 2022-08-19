@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
-public class User
+public class User extends Auditable
 {
 
 	private static final long serialVersionUID = 1L;

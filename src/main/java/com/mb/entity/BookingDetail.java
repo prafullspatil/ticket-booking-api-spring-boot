@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "BookingDetails")
-public class BookingDetail
+public class BookingDetail extends Auditable
 {
 
 	@Id

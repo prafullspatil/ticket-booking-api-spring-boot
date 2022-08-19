@@ -1106,3 +1106,76 @@ Identify and stop the process that's listening on port 9091 or configure this ap
 2022-08-19 16:43:54.612  INFO 28583 --- [http-nio-9091-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-08-19 16:43:54.612  INFO 28583 --- [http-nio-9091-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2022-08-19 16:43:54.613  INFO 28583 --- [http-nio-9091-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-08-19 17:49:48.525  INFO 47094 --- [restartedMain] com.mb.TicketBookingApiApplication       : Starting TicketBookingApiApplication using Java 17.0.2 on mindbowser with PID 47094 (/home/mindbowser/Documents/workspace-spring-tool-suite-4-4.14.1.RELEASE/ticket-booking-api/target/classes started by mindbowser in /home/mindbowser/Documents/workspace-spring-tool-suite-4-4.14.1.RELEASE/ticket-booking-api)
+2022-08-19 17:49:48.527  INFO 47094 --- [restartedMain] com.mb.TicketBookingApiApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-08-19 17:49:48.576  INFO 47094 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-08-19 17:49:48.576  INFO 47094 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-08-19 17:49:49.431  INFO 47094 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-19 17:49:49.501  INFO 47094 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 3 JPA repository interfaces.
+2022-08-19 17:49:50.096  INFO 47094 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9091 (http)
+2022-08-19 17:49:50.105  INFO 47094 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-19 17:49:50.105  INFO 47094 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-08-19 17:49:50.158  INFO 47094 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-19 17:49:50.159  INFO 47094 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1582 ms
+2022-08-19 17:49:50.287  INFO 47094 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-19 17:49:50.332  INFO 47094 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-08-19 17:49:50.445  INFO 47094 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-19 17:49:50.512  INFO 47094 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-19 17:49:50.638  INFO 47094 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-19 17:49:50.650  INFO 47094 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-08-19 17:49:51.160  INFO 47094 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-19 17:49:51.166  INFO 47094 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-08-19 17:49:51.720  WARN 47094 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-08-19 17:49:52.431  WARN 47094 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2022-08-19 17:49:52.455  WARN 47094 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 9091 is already in use
+2022-08-19 17:49:52.457  INFO 47094 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-08-19 17:49:52.460  INFO 47094 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-19 17:49:52.465  INFO 47094 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-19 17:49:52.468  INFO 47094 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-08-19 17:49:52.480  INFO 47094 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-08-19 17:49:52.499 ERROR 47094 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 9091 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 9091 or configure this application to listen on another port.
+
+2022-08-19 17:49:55.995  INFO 28583 --- [RMI TCP Connection(178)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-08-19 17:49:56.002  INFO 28583 --- [RMI TCP Connection(178)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-08-19 17:49:56.003  INFO 28583 --- [RMI TCP Connection(178)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2022-08-19 17:49:56.011  INFO 28583 --- [RMI TCP Connection(178)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2022-08-19 17:58:27.613  INFO 48841 --- [restartedMain] com.mb.TicketBookingApiApplication       : Starting TicketBookingApiApplication using Java 17.0.2 on mindbowser with PID 48841 (/home/mindbowser/Documents/workspace-spring-tool-suite-4-4.14.1.RELEASE/ticket-booking-api/target/classes started by mindbowser in /home/mindbowser/Documents/workspace-spring-tool-suite-4-4.14.1.RELEASE/ticket-booking-api)
+2022-08-19 17:58:27.616  INFO 48841 --- [restartedMain] com.mb.TicketBookingApiApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-08-19 17:58:27.686  INFO 48841 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-08-19 17:58:27.687  INFO 48841 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-08-19 17:58:28.670  INFO 48841 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-19 17:58:28.727  INFO 48841 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 3 JPA repository interfaces.
+2022-08-19 17:58:29.354  INFO 48841 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9091 (http)
+2022-08-19 17:58:29.363  INFO 48841 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-19 17:58:29.363  INFO 48841 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-08-19 17:58:29.426  INFO 48841 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-19 17:58:29.426  INFO 48841 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1739 ms
+2022-08-19 17:58:29.616  INFO 48841 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-19 17:58:29.656  INFO 48841 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-08-19 17:58:29.783  INFO 48841 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-19 17:58:29.862  INFO 48841 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-19 17:58:30.016  INFO 48841 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-19 17:58:30.030  INFO 48841 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-08-19 17:58:30.875  INFO 48841 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-19 17:58:30.882  INFO 48841 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-08-19 17:58:31.616  WARN 48841 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-08-19 17:58:32.373  INFO 48841 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-08-19 17:58:32.410  INFO 48841 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9091 (http) with context path ''
+2022-08-19 17:58:32.422  INFO 48841 --- [restartedMain] com.mb.TicketBookingApiApplication       : Started TicketBookingApiApplication in 5.242 seconds (JVM running for 6.525)
+2022-08-19 17:59:33.912  INFO 48841 --- [http-nio-9091-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-19 17:59:33.913  INFO 48841 --- [http-nio-9091-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-19 17:59:33.914  INFO 48841 --- [http-nio-9091-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
