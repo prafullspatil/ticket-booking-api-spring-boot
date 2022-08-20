@@ -1,5 +1,6 @@
 package com.mb.dao;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,14 @@ public class BookingDetailsDaoImpl implements BookingDetailsDao
 	@Override
 	public BookingDetail saveSeatDetails(BookingDetailDto bookingDetailDto)
 	{
+		// System.out.println("BookingDetailsDaoImpl.saveSeatDetails()" + Arrays.toString(bookingDetailDto.getReserved()));
+		// List<String> reservedSeat = bookingDetailRepository.findByReserved(Arrays.toString(bookingDetailDto.getReserved()));
+		// System.out.println("reserved seats" + reservedSeat);
+		// if (reservedSeat == null && )
+		// {
+		// throw new CustomException("Seats Already reserved");
+		// }
+
 		Optional<Show> optionalShow = showRepository.findById(bookingDetailDto.getShowId());
 		Optional<User> optionalUser = userRepository.findById(bookingDetailDto.getUserId());
 
@@ -35,7 +44,10 @@ public class BookingDetailsDaoImpl implements BookingDetailsDao
 		Show show = optionalShow.get();
 		BookingDetail seatDetail = new BookingDetail();
 		seatDetail.setUser(user);
-		seatDetail.setReserved(bookingDetailDto.getReserved());
+		System.out.println("In dao" + Arrays.toString(bookingDetailDto.getReserved()));
+
+		seatDetail.setReserved(Arrays.toString(bookingDetailDto.getReserved()).replaceAll("[^A-Z 0-9 ,]", ""));
+
 		seatDetail.setShow(show);
 		try
 		{

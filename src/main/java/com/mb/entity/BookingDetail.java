@@ -25,7 +25,7 @@ public class BookingDetail extends Auditable
 	private User user;
 
 	@Column(name = "reserved")
-	private String[] reserved;
+	private String reserved;
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "show_id", nullable = false, updatable = false)
@@ -36,7 +36,7 @@ public class BookingDetail extends Auditable
 		super();
 	}
 
-	public BookingDetail(long id, User user, String[] reserved, Show show)
+	public BookingDetail(long id, User user, String reserved, Show show)
 	{
 		super();
 		this.id = id;
@@ -45,12 +45,12 @@ public class BookingDetail extends Auditable
 		this.show = show;
 	}
 
-	public String[] getReserved()
+	public String getReserved()
 	{
 		return reserved;
 	}
 
-	public void setReserved(String[] reserved)
+	public void setReserved(String reserved)
 	{
 		this.reserved = reserved;
 	}
